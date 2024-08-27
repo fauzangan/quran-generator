@@ -8,7 +8,15 @@ function CalculatorPage() {
   const handleButtonClick = (value) => { 
     if (value == "="){
       try {
-        setInput(eval(input).toString());
+        let pangkatBoy = input;
+
+        pangkatBoy = pangkatBoy.replace(/\^/g, "**")
+
+        if (pangkatBoy.includes("/0")) {
+          setInput("Error Boy: Gabisa dibagi nol")
+        } else {
+          setInput(eval(pangkatBoy).toString())
+        }
       } catch (e) {
         setInput("Error Boy")
       }

@@ -8,7 +8,9 @@ function Button({ value, onClick, isSpecial }) {
   return (
     <button
       onClick={() => onClick(value)}
-      className={`${buttonStyle} p4 rounded-lg text-xl font-bold`}
+      className={`${value == "=" 
+        ? `col-span-4 bg-blue-500 text-white p-4 rounded-lg text-xl font-bold` 
+        : `${buttonStyle} p-4 rounded-lg text-xl font-bold`}`}
     >
       {value}
     </button>
